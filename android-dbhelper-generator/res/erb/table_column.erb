@@ -1,0 +1,12 @@
+        private <%= type_in_name %>Field field<%= field_name %>;
+
+        public <%= type_in_name %>Field <%= field_method_name %>(){
+            if( field<%= field_name %> == null ){
+                field<%= field_name %> = new <%= type_in_name %>Field( "<%= column_name %>", cursor );
+            }
+            return field<%= field_name%>;
+        }
+
+        public List<<%= java_boxed_type %>> collect<%= field_name %>(){
+            return collect( <%= field_method_name %>() );
+        }

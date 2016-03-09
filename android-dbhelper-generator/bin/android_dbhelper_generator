@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+
+$:.push File.dirname( File.realpath( __FILE__ ) ) + "/../lib"
+
+require 'android/dbhelper/generator'
+
+if ARGV.length < 3
+    puts "Usage: android-dbhelper-generator src package_name def_file1 def_file2 ...."
+end
+
+src = ARGV.shift
+package = ARGV.shift
+
+ARGV.each do |file|
+    Android::Dbhelper::Generator.load( file ).generate_to( src, package )
+end
+
