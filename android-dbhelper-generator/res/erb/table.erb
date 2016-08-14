@@ -36,6 +36,10 @@ public class <%=java_class_name%> {
             return cursor.moveToNext();
         }
 
+        public boolean moveToPosition(int position){
+            return cursor.moveToPosition(position);
+        }
+
         public CursorReader first(){
             if( !cursor.moveToNext()){
                 throw new RuntimeException( "Cursor is empty. Can't call first" );

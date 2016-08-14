@@ -42,7 +42,7 @@ module Android
             end
 
             def field_name
-                @col[:name].to_s.capitalize
+                @col[:name].to_s.gsub(/^_+/,"").capitalize
             end
 
             def string_modifier
@@ -54,7 +54,7 @@ module Android
             end
 
             def field_method_name
-                @col[:name].to_s
+                @col[:name].to_s.gsub( /^_+/, "" )
             end
 
             def column_name
